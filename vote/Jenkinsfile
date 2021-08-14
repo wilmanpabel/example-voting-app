@@ -11,9 +11,20 @@ pipeline {
                 changeset "**/vote/**"
             }
             steps {
-                echo "compiling"
+                echo "installing requirements"
                 dir('vote'){
-                    sh 'ls'
+                    sh 'pip install -r requirements.txt'
+                }
+            }
+        }
+        stage('test') {
+            when {
+                changeset "**/vote/**"
+            }
+            steps {
+                echo "run test"
+                dir('vote'){
+                    sh 'nosetest -v'
                 }
             }
         }
