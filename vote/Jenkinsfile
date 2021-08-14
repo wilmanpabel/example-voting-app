@@ -1,0 +1,22 @@
+pipeline {
+    agent {
+        docker {
+            image ''
+            }
+    }
+
+    stages {
+        stage('build') {
+            when {
+                changeset "**/result/**"
+            }
+            steps {
+                echo "compiling"
+                dir('vote'){
+                    sh 'ls'
+                }
+            }
+        }
+    }
+
+}
