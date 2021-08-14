@@ -22,7 +22,7 @@ pipeline {
                 changeset "**/vote/**"
             }
             steps {
-                echo "run test"
+                echo "run test ok"
                 dir('vote'){
                     sh 'nosetest -v'
                 }
