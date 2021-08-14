@@ -7,9 +7,9 @@ pipeline {
 
     stages {
         stage('build') {
-            //when {
-            //    changeset "**/result/**"
-            //}
+            when {
+                changeset "**/vote/**"
+            }
             steps {
                 echo "compiling"
                 dir('vote'){
