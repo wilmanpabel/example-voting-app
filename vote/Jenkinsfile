@@ -1,8 +1,8 @@
 pipeline {
     agent {
         docker {
-            image 'node:latest'
-            }
+            image 'python:3.6'
+        }
     }
 
     stages {
@@ -16,6 +16,17 @@ pipeline {
                     sh 'ls'
                 }
             }
+        }
+    }
+    post {
+        always {
+            echo "is completed"
+        }
+        failure {
+            echo "fail"
+        }
+        success {
+            echo "ok"
         }
     }
 
