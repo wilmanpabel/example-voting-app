@@ -43,11 +43,11 @@ pipeline {
                 branch "master"
             }
             steps {
-                echo "preparign stage"
+                echo "preate to package stage"
                 script {
                     docker.withRegistry('https://index.docker.io/v1','dcoker-hub-credentials'){
-                        def image = docker.bild("wilmanpabel/docker-vote-app-test:v${env.BUILD_ID}","./vote")
-                        image.push()
+                        def myimage = docker.bild("wilmanpabel/docker-vote-app-test:v${env.BUILD_ID}","./vote")
+                        myimage .push()
                         //image.push("${env.BRANCH_NAME}")
                     }
                 }
