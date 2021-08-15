@@ -41,7 +41,7 @@ pipeline {
                 changeset "**/vote/**"
                 branch "master"
             }
-            //agent any
+            agent any
             steps {
                 echo "preate to package stage"
                 script {
