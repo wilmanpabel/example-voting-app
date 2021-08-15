@@ -46,8 +46,8 @@ pipeline {
                 echo "preate to package stage"
                 script {
                     docker.withRegistry('https://index.docker.io/v1','dcoker-hub-credentials'){
-                        def myimage = docker.bild("wilmanpabel/docker-vote-app-test:v${env.BUILD_ID}","./vote")
-                        myimage .push()
+                        def myimage = docker.build("wilmanpabel/docker-vote-app-test:v${env.BUILD_ID}","./vote")
+                        myimage.push()
                         //image.push("${env.BRANCH_NAME}")
                     }
                 }
